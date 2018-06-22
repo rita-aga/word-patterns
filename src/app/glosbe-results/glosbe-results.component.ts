@@ -57,8 +57,9 @@ export class GlosbeResultsComponent implements OnInit {
     console.log(event);
     this.sentence.from_lang = this.query.from_lang;
     this.sentence.dest_lang = this.query.dest_lang;
-    this.sentence.from_text = event.path[1].cells[0].innerText;
-    this.sentence.dest_text = event.path[1].cells[1].innerText;
+    this.sentence.from_text = event.target.parentElement.cells[0].innerText;
+    this.sentence.dest_text = event.target.parentElement.cells[1].innerText;
+
   }
 
   addSelectedSentence() {
