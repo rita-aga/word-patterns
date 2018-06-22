@@ -73,7 +73,7 @@ export class GlosbeResultsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.refreshResults();
+    // this.refreshResults();
   }
 
 }
