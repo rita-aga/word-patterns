@@ -1,0 +1,39 @@
+<table mat-table [dataSource]="mySentences">
+
+  <ng-container matColumnDef="origin_lang">
+    <th mat-header-cell *matHeaderCellDef> From </th>
+    <td mat-cell *matCellDef="let element"> {{element.from_lang}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="target_lang">
+    <th mat-header-cell *matHeaderCellDef> To </th>
+    <td mat-cell *matCellDef="let element"> {{element.dest_lang}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="origin">
+    <th mat-header-cell *matHeaderCellDef> Origin </th>
+    <td mat-cell *matCellDef="let element"> {{element.from_text}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="target">
+    <th mat-header-cell *matHeaderCellDef> Target </th>
+    <td mat-cell *matCellDef="let element"> {{element.dest_text}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef>Date</th>
+    <td mat-cell *matCellDef="let element"> {{element.add_date | date}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <button (click)="delete(element._id)" mat-raised-button color="warn">> Delete
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+
+</table>

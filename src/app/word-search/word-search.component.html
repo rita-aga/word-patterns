@@ -1,0 +1,37 @@
+<mat-card>
+  <mat-card-title>
+    <p>My word today is: </p>
+    <h2>{{word}}</h2>
+  </mat-card-title>
+
+  <form (ngSubmit)="glosberesults.onSubmit($event)" #queryForm=ngForm>
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="word" placeholder="Search word..." name="word">
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-select ngModel name="from_lang" placeholder="Origin language">
+        <mat-option *ngFor="let lang of languages" [value]="lang.iso">
+          {{ lang.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-select ngModel name="dest_lang" placeholder="Target language">
+        <mat-option *ngFor="let lang of languages" [value]="lang.iso">
+          {{ lang.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button color="primary">Search</button>
+
+  </form>
+</mat-card>
+
+<div>
+  <app-glosbe-results #glosberesults [query]=queryForm.value></app-glosbe-results>
+</div>
